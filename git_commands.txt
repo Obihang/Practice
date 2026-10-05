@@ -1,0 +1,46 @@
+==============================================================================
+            GIT & GITHUB ESSENTIAL CHEAT SHEET FOR COMPUTATIONAL PHYSICS
+==============================================================================
+
+1. ONE-TIME CONFIGURATION
+------------------------------------------------------------------------------
+git config --global user.name "Obihang"
+git config --global user.email "obihangkandangwa@gmail.com"
+git config --global init.defaultBranch main
+ssh -T git@github.com
+
+2. STARTING A BRAND NEW PROJECT
+------------------------------------------------------------------------------
+cd ~/path/to/project
+git init
+git branch -M main
+git remote add origin git@github.com:Obihang/REPO-NAME.git
+
+3. THE DAILY WORKFLOW (Edit -> Status -> Add -> Commit -> Push)
+------------------------------------------------------------------------------
+git status                         # Check what changed
+git diff                           # See line-by-line changes
+git add filename                   # Stage specific file
+git add .                          # Stage all modified files
+git commit -m "Describe change"    # Save snapshot
+git push                           # Send to GitHub
+
+4. INSPECTING HISTORY
+------------------------------------------------------------------------------
+git log --oneline                  # Short commit history
+
+5. THE .gitignore SHIELD (For VASP / DFT)
+------------------------------------------------------------------------------
+Always put these inside .gitignore:
+POTCAR                             # VASP proprietary license
+WAVECAR                            # Too big (>100 MB)
+CHGCAR
+vasprun.xml
+slurm-*.out
+
+6. RESCUE COMMANDS
+------------------------------------------------------------------------------
+git restore filename               # Discard changes, revert to last commit
+git restore --staged filename      # Unstage a file before committing
+git clone git@github.com:Obihang/REPO.git  # Download repo to laptop
+==============================================================================
